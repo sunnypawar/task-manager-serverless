@@ -4,6 +4,34 @@ Description: CD Demo Lambda
 
 Resources:
 
+HelloSunny:
+  Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: helloSunny.handler
+      CodeUri: ./Lambda
+      Runtime: nodejs10.x
+      AutoPublishAlias: live
+      Description: 'Lambda function for CD Demo'
+      MemorySize: 128
+      Timeout: 30
+      DeploymentPreference:
+          Type: Linear10PercentEvery1Minute
+          # Alarms:
+          #   - !Ref AliasErrorMetricGreaterThanZeroAlarmforTMSL
+          #   - !Ref LatestVersionErrorMetricGreaterThanZeroAlarmforTMSL
+          # Hooks:
+          #   PreTraffic: !Ref PreTrafficHook
+          #   PostTraffic: !Ref PostTrafficHook
+      Events:
+        HelloSunnyAPI:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+      Environment:
+        Variables:
+          REGION: ap-south-1
+
   HelloWorld:
     Type: 'AWS::Serverless::Function'
     Properties:
