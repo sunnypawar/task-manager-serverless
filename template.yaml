@@ -4,7 +4,7 @@ Description: CD Demo Lambda with Express
 
 Resources:
 
-  TMSL:
+  app:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: app/app.handler
@@ -42,9 +42,9 @@ Resources:
       ComparisonOperator: GreaterThanThreshold
       Dimensions:
         - Name: Resource
-          Value: !Sub "${TMSL}:live"
+          Value: !Sub "${app}:live"
         - Name: FunctionName
-          Value: !Ref HelloWorld
+          Value: !Ref app
       EvaluationPeriods: 2
       MetricName: Errors
       Namespace: AWS/Lambda
@@ -59,11 +59,11 @@ Resources:
       ComparisonOperator: GreaterThanThreshold
       Dimensions:
         - Name: Resource
-          Value: !Sub "${TMSL}:live"
+          Value: !Sub "${app}:live"
         - Name: FunctionName
-          Value: !Ref TMSL
+          Value: !Ref app
         - Name: ExecutedVersion
-          Value: !GetAtt TMSL.Version.Version
+          Value: !GetAtt app.Version.Version
       EvaluationPeriods: 2
       MetricName: Errors
       Namespace: AWS/Lambda
