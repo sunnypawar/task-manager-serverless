@@ -21,7 +21,7 @@
 
         {
             "Effect":"Allow",
-            "Action": "cloudwatch:PutMetricAlarm",
+            "Action": "cloudwatch:*",
             "Resource":"*"
         },
 
