@@ -100,9 +100,7 @@
         },
         {
             "Action": [
-                "codedeploy:CreateDeploymentGroup",
-                "codedeploy:CreateDeployment",
-                "codedeploy:GetDeployment"
+                "codedeploy:*"
             ],
             "Resource": [
                 "arn:aws:codedeploy:ap-south-1:293081788231:deploymentgroup:*"
