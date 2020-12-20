@@ -17,8 +17,8 @@ Resources:
       DeploymentPreference:
           Type: Linear10PercentEvery1Minute
           Alarms:
-            - !Ref AliasErrorMetricGreaterThanZeroAlarm
-            - !Ref LatestVersionErrorMetricGreaterThanZeroAlarm
+            - !Ref AliasErrorMetricGreaterThanZeroAlarmforTMSL
+            - !Ref LatestVersionErrorMetricGreaterThanZeroAlarmforTMSL
           Hooks:
             PreTraffic: !Ref PreTrafficHook
             PostTraffic: !Ref PostTrafficHook
@@ -32,7 +32,7 @@ Resources:
         Variables:
           REGION: ap-south-1
           
-  AliasErrorMetricGreaterThanZeroAlarm:
+  AliasErrorMetricGreaterThanZeroAlarmforTMSL:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
       AlarmDescription: Lambda Function Error > 0
@@ -49,7 +49,7 @@ Resources:
       Statistic: Sum
       Threshold: 0
 
-  LatestVersionErrorMetricGreaterThanZeroAlarm:
+  LatestVersionErrorMetricGreaterThanZeroAlarmforTMSL:
     Type: "AWS::CloudWatch::Alarm"
     Properties:
       AlarmDescription: Lambda Function Error > 0
