@@ -75,7 +75,7 @@ Resources:
       Handler: preTrafficHook.handler
       Runtime: nodejs10.x
       CodeUri: ./Lambda
-      FunctionName: 'CodeDeployHook_PreTrafficHook'
+      FunctionName: 'CodeDeployHook_PreTrafficHookforTMSL'
       Policies:
         - Version: "2012-10-17"
           Statement: 
@@ -103,7 +103,7 @@ Resources:
       Handler: postTrafficHook.handler
       Runtime: nodejs10.x
       CodeUri: ./Lambda
-      FunctionName: 'CodeDeployHook_PostTrafficHook'
+      FunctionName: 'CodeDeployHook_PostTrafficHookforTMSL'
       Policies:
         - Version: "2012-10-17"
           Statement: 
