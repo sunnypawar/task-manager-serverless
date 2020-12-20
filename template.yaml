@@ -4,10 +4,10 @@ Description: CD Demo Lambda with Express
 
 Resources:
 
-  app:
+  tmapp:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: app/app.handler
+      Handler: tmapp/tmapp.handler
       CodeUri: ./Lambda
       Runtime: nodejs10.x
       AutoPublishAlias: live
@@ -42,9 +42,9 @@ Resources:
       ComparisonOperator: GreaterThanThreshold
       Dimensions:
         - Name: Resource
-          Value: !Sub "${app}:live"
+          Value: !Sub "${tmapp}:live"
         - Name: FunctionName
-          Value: !Ref app
+          Value: !Ref tmapp
       EvaluationPeriods: 2
       MetricName: Errors
       Namespace: AWS/Lambda
@@ -59,11 +59,11 @@ Resources:
       ComparisonOperator: GreaterThanThreshold
       Dimensions:
         - Name: Resource
-          Value: !Sub "${app}:live"
+          Value: !Sub "${tmapp}:live"
         - Name: FunctionName
-          Value: !Ref app
+          Value: !Ref tmapp
         - Name: ExecutedVersion
-          Value: !GetAtt app.Version.Version
+          Value: !GetAtt tmapp.Version.Version
       EvaluationPeriods: 2
       MetricName: Errors
       Namespace: AWS/Lambda

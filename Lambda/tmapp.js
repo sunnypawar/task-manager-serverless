@@ -12,4 +12,4 @@ app.post('/api/v1/getback', (req, res) => {
 });
 // app.listen(3000, () => console.log(`Listening on: 3000`));
 
-module.exports.handler = serverless(app);
+module.exports.handler = serverless(tmapp);
