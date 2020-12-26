@@ -16,12 +16,12 @@ HelloSunny:
       Timeout: 30
       DeploymentPreference:
           Type: Linear10PercentEvery1Minute
-          # Alarms:
-          #   - !Ref AliasErrorMetricGreaterThanZeroAlarmforTMSL
-          #   - !Ref LatestVersionErrorMetricGreaterThanZeroAlarmforTMSL
-          # Hooks:
-          #   PreTraffic: !Ref PreTrafficHook
-          #   PostTraffic: !Ref PostTrafficHook
+          Alarms:
+            - !Ref AliasErrorMetricGreaterThanZeroAlarmforTMSL
+            - !Ref LatestVersionErrorMetricGreaterThanZeroAlarmforTMSL
+          Hooks:
+            PreTraffic: !Ref PreTrafficHook
+            PostTraffic: !Ref PostTrafficHook
       Events:
         HelloSunnyAPI:
           Type: Api
