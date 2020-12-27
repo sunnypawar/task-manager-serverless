@@ -7,7 +7,7 @@ Resources:
   HelloWorld:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: helloWorld.handler
+      Handler: helloWorld/helloWorld.handler
       CodeUri: ./Lambda
       Runtime: nodejs10.x
       AutoPublishAlias: live
